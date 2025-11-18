@@ -2,53 +2,37 @@
 layout: home
 title: Janta Roy Antor
 ---
+    <section class="hero">
+        <div class="hero-inner">
+            <h1 class="hero-title">Hi, I'm Antor</h1>
+            <p class="hero-subtitle">Software Developer</p>
+            <div class="hero-links">
+                <a href="https://github.com/jroyantor" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                <a href="https://twitter.com/jroyantor" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="https://www.linkedin.com/in/jrantor" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+            </div>
+        </div>
+    </section>
+
 	<div class="row">
         <div id="main" class="col l12 m12 s12 offset-l2">
-         <div id="about" class="section scrollspy">
-           
-             <blockquote>Aspiring Problem Solver(!)</blockquote>
-             <article class="leadh">
-               Currently, I am on a hiatus for all unimportant things. I'll be back when some progress is being attained.	
-             </article>
-             <h5>Meanwhile I will be on: </h5>
-             <ul class="inline">
-                 <li>
-                     <a href="https://twitter.com/jroyantor" title="Antor on Twitter" target="_blank"><i class="fab fa-twitter-square fa-3x"></i></a>
-                 </li>
-   
-                 <li>
-                     <a href="https://www.linkedin.com/in/jrantor/" title="On LinkedIn" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
-                 </li>
-                 <li>
-                     <a href="https://github.com/jrantor" title="jrantor on github" target="_blank"><i class="fab fa-github fa-3x"></i></a>
-                 </li>
-             </ul>
-         </div>
-         <hr>
-         <div id="posts"  class="section scrollspy">
-            {% for post in paginator.posts %}
-             <a href="{{ site.baseurl }}{{post.url}}" class="tcolor"><h4>{{post.title}}</h4></a>
-             <span>{{post.date | date_to_string}}</span>
-             <article  class="leadh">
-                 {{ post.excerpt }}
-             </article> <br>
-             {% endfor %}
-            <br>
-             <div class="pagination">
-                {% if paginator.previous_page %}
-                <a class="waves-effect waves-light pink darken-1 btn-small" href="{{ site.baseurl }}/{% if paginator.page > 2 %}page{{paginator.previous_page}}{% endif %}">
-                    <i class="material-icons left">arrow_back</i>Newer
-                </a>
-                {% endif %}
-   
-                {% if paginator.next_page %}
-                <a class="waves-effect waves-light btn-small pink darken-1"  style="float: right;" href="{{ site.baseurl }}/page{{paginator.next_page}}">
-                    <i class="material-icons right">arrow_forward</i>Older
-                </a>
-                {% endif %}
+        <div id="posts" class="section scrollspy">
+
+            <div class="post-grid">
+                {% for post in paginator.posts %}
+                <div class="post-card">
+                    <a href="{{ site.baseurl }}{{post.url}}" class="tcolor">
+                        <h4>{{ post.title }}</h4>
+                    </a>
+                    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+                    <p class="post-excerpt">{{ post.excerpt }}</p>
+
+                    <a class="read-more tcolor" href="{{ site.baseurl }}{{post.url}}">Read more →</a>
+                </div>
+                {% endfor %}
             </div>
 
-         </div>
          
        </div>
    </div>

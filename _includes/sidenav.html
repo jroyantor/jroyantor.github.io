@@ -1,18 +1,28 @@
+<div class="container2">
+  <a href="#" data-target="slide-out" class="top-nav sidenav-trigger "><i class="material-icons">menu</i></a>
+</div>
+<ul id="slide-out" class="sidenav sidenav-fixed glass-nav">
+    <div class="glass-inner">
+        <a href="{{ site.baseurl }}/">
+            <h3 class="nav-title">{{ site.name }}</h3>
+        </a>
 
-	<div class="container">
-		<a href="#" data-target="slide-out" class="top-nav sidenav-trigger"><i class="material-icons">menu</i></a>
-		</div>
-  <ul id="slide-out" class="sidenav sidenav-fixed bg">
+        <ul class="section table-of-contents">
+            <li><a href="{{ site.baseurl }}/#about">About</a></li>
+            <li><a href="{{ site.baseurl }}/#posts">Posts</a></li>
+        </ul>
+        <button id="theme-toggle" class="theme-toggle">🌙</button>
+    </div>
+</ul>
 
-    <div class="container" style="margin-top: 100px;">
-      <a href="{{ site.baseurl }}/"><h1 style="color:white">{{ site.name }}</h1></a>
-    <div class="row">
-    <div class="col l6">
-      <ul class="section table-of-contents">
-		<li class="sdnavtitle"><a href="{{site.baseurl}}/#about">About</a></li>
-    <li class="sdnavtitle"><a href="{{site.baseurl}}/#posts">Posts</a></li>
-      </ul>
-    </div>
-  </div>
-    </div>
-  </ul>
+
+<script>
+
+
+    const toggle = document.getElementById("theme-toggle");
+
+    toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
+    });
+</script>
