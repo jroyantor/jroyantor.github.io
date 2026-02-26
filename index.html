@@ -2,37 +2,132 @@
 layout: home
 title: Janta Roy Antor
 ---
-    <section class="hero">
-        <div class="hero-inner">
-            <h1 class="hero-title">Hi, I'm Antor</h1>
-            <p class="hero-subtitle">Software Developer</p>
-            <div class="hero-links">
-                <a href="https://github.com/jroyantor" target="_blank"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://twitter.com/jroyantor" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
-                <a href="https://www.linkedin.com/in/jrantor" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+<section class="hero-modern" id="about">
+    <div class="status-badge">
+        <span class="dot"></span> Available for new projects
+    </div>
+    <h1 class="hero-title">Building <span>robust</span> software solutions.</h1>
+    <p class="hero-subtitle">Software Developer specializing in clean, scalable web applications.</p>
+    <div class="hero-cta">
+        <a href="#projects" class="btn-primary">
+            <i class="fas fa-rocket"></i> View Projects
+        </a>
+        <a href="https://github.com/jroyantor" target="_blank" class="btn-secondary">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+    
+        <div class="social-group">
+            <a href="https://linkedin.com/in/jrantor" target="_blank" class="btn-social" title="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="mailto:me.jrantor@gmail.com" class="btn-social" title="Email Me">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div id="services" class="section-container">
+    <h3 class="section-title">Services</h3>
+    <div class="horizontal-list">
+        {% for service in site.data.services %}
+        <div class="list-row-item">
+            <div class="row-icon"><i class="{{ service.icon }}"></i></div>
+            <div class="row-content">
+                <h5>{{ service.title }}</h5>
+                <p>{{ service.description }}</p>
+                <div class="row-footer-meta" style="color: var(--accent); font-weight: 700;">{{ service.stack }}</div>
             </div>
         </div>
-    </section>
+        {% endfor %}
+    </div>
+</div>
 
-	<div class="row">
-        <div id="main" class="col l12 m12 s12 offset-l2">
-        <div id="posts" class="section scrollspy">
+<div id="skills" class="section-container">
+    <h3 class="section-title">Expertise</h3>
+    <div class="skills-modern-grid">
+        
+        <div class="skill-glass-card primary">
+            <div class="card-glow"></div>
+            <span class="category-label">Main Stack</span>
+            <h4>Laravel & Vue.js</h4>
+            <div class="skill-progress-bar"><div class="fill" style="width: 95%;"></div></div>
+            <p>Crafting robust backends and reactive frontends.</p>
+        </div>
 
-            <div class="post-grid">
-                {% for post in paginator.posts %}
-                <div class="post-card">
-                    <a href="{{ site.baseurl }}{{post.url}}" class="tcolor">
-                        <h4>{{ post.title }}</h4>
-                    </a>
-                    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-                    <p class="post-excerpt">{{ post.excerpt }}</p>
-
-                    <a class="read-more tcolor" href="{{ site.baseurl }}{{post.url}}">Read more →</a>
-                </div>
-                {% endfor %}
+        <div class="skill-glass-card">
+            <span class="category-label">Languages</span>
+            <div class="mini-tags">
+                <span>PHP</span>
+                <span>Python</span>
+                <span>JavaScript</span>
+                <span>SQL</span>
+                <span>C#</span>
             </div>
+        </div>
 
-         
-       </div>
-   </div>
+        <div class="skill-glass-card">
+            <span class="category-label">Frameworks & Tools</span>
+            <div class="mini-tags">
+                <span>Laravel</span>
+                <span>Vue.js</span>
+                <span>Node.js</span>
+                <span>TailwindCSS</span>
+                <span>.NET</span>
+                <span>Git</span>
+                <span>Subversion</span>
+            </div>
+            <!-- <span class="category-label">Automation</span>
+            <h4>Python & Selenium</h4>
+            <div class="skill-progress-bar"><div class="fill" style="width: 85%;"></div></div>
+            <p>Web scraping and process automation.</p> -->
+        </div>
+
+    </div>
+</div>
+
+<div id="projects" class="section-container">
+    <h3 class="section-title">Featured Projects</h3>
+    <div class="horizontal-list">
+        {% for project in site.data.projects %}
+        <div class="list-row-item project-row">
+            <div class="row-content">
+                <span class="row-tag">{{ project.tag }}</span>
+                <h4>{{ project.title }}</h4>
+                <p>{{ project.description }}</p>
+                <div class="row-footer-meta">{{ project.tech }}</div>
+                
+                <div class="row-links">
+                    {% if project.source != "#" %}
+                    <a href="{{ project.source }}" class="link-btn" target="_blank">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                    {% endif %}
+                    {% if project.live != "#" %}
+                    <a href="{{ project.live }}" class="link-btn live" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row-arrow"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div id="posts" class="section-container">
+    <h3 class="section-title">Recent Posts</h3>
+    <div class="horizontal-list">
+        {% for post in site.posts limit:3 %}
+        <a href="{{ site.baseurl }}{{post.url}}" class="list-row-item post-row">
+            <div class="row-content">
+                <span class="row-tag">{{ post.date | date: "%B %d, %Y" }}</span>
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.excerpt | strip_html | truncate: 85 }}</p>
+            </div>
+            <div class="row-arrow"><i class="fas fa-arrow-right"></i></div>
+        </a>
+        {% endfor %}
+    </div>
+</div>

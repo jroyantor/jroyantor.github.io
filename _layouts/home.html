@@ -1,27 +1,20 @@
-
 <!DOCTYPE html>
 <html>
-	{% include header.html %}
-<body>
-	<header>
-		{% include sidenav.html %}
-	</header>
-<main>
-  <nav>
-  </nav>
-<div class="container">
-  {{ content }}
-</div>
-
-<footer>
- <div class="container" style="text-align: center;">
-	<p>
-		&copy <a href="{{ site.baseurl }}/" class="tcolor">jroyantor</a> <script type="text/javascript"> document.write(new Date().getFullYear()); </script> 
-	</p>
-</div>
-</footer>
-
-</main>
-    	
-</body>
+    {% include header.html %}
+    <body class="light-theme"> <div class="app-container">
+            <aside class="glass-sidebar">
+                {% include sidenav.html %}
+            </aside>
+    
+            <main class="main-content">
+                <div class="content-wrapper">
+                    {{ content }}
+                </div>
+                
+                <footer style="margin-top: 4rem; opacity: 0.5; font-size: 0.8rem;">
+                    <p>&copy; {{ "now" | date: "%Y" }} Janta Roy Antor. Built with Jekyll.</p>
+                </footer>
+            </main>
+        </div>
+    </body>
 </html>

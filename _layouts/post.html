@@ -1,10 +1,11 @@
 ---
 layout: home
 ---
-    <div class="row">
-        <div id="main" class="col l12 m12 s12 offset-l2">
-            <h4 class="tcolor">{{ page.title}}</h4>
-           <span>{{ page.date | date_to_string }}</span>
-           <article class="leadh">{{ content }}</article>
-        </div>
+<div class="section-card">
+    <p class="project-tag">{{ page.date | date: "%B %d, %Y" }}</p>
+    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 2rem;">{{ page.title }}</h1>
+    <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 2rem;">
+    <div class="post-body">
+        {{ content }}
     </div>
+</div>

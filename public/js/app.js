@@ -1,26 +1,23 @@
-$(document).ready(function(){
-	$('.sidenav').sidenav();
-	 $('.scrollspy').scrollSpy();
-    $('.collapsible').collapsible();
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleSwitch = document.querySelector('#checkbox');
+    const body = document.body;
 
+    // Set initial state
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-theme');
+        if(toggleSwitch) toggleSwitch.checked = true;
+    }
+
+    if (toggleSwitch) {
+        toggleSwitch.addEventListener('change', () => {
+            if (toggleSwitch.checked) {
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
 });
-
-
-// Load from cache
-if (localStorage.getItem("theme") === "dark") {
-  document.documentElement.classList.add("dark");
-}
-
-
-
-// $(window).on('resize', function() {
-//   var win = $(this);
-//   if (win.width() < 1130) {
-
-//     $('#main').addClass('offset-l3');
-//     $('#main').removeClass('offset-l2');
-//   } else {
-//     $('#main').removeClass('offset-l3');
-//     $('#main').addClass('offset-l2');
-//   }
-// });

@@ -1,0 +1,14 @@
+- title: "Web Development"
+  icon: "fas fa-code"
+  description: "Building high-performance, reactive web applications using Laravel and Vue.js."
+  stack: "Laravel • Vue.js • MySQL"
+
+- title: "Automation & Scripting"
+  icon: "fas fa-robot"
+  description: "Automating repetitive tasks and web scraping using Selenium and Python."
+  stack: "Python • Selenium • BeautifulSoup"
+
+- title: "Full-Stack Troubleshooting"
+  icon: "fas fa-bug-slash"
+  description: "Fixing complex bugs and optimizing existing Laravel or .NET applications."
+  stack: "Laravel • Node.js • .NET • Debugging"

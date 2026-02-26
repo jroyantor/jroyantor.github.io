@@ -1,28 +1,47 @@
-<div class="container2">
-  <a href="#" data-target="slide-out" class="top-nav sidenav-trigger "><i class="material-icons">menu</i></a>
-</div>
-<ul id="slide-out" class="sidenav sidenav-fixed glass-nav">
-    <div class="glass-inner">
-        <a href="{{ site.baseurl }}/">
-            <h3 class="nav-title">{{ site.name }}</h3>
-        </a>
-
-        <ul class="section table-of-contents">
-            <li><a href="{{ site.baseurl }}/#about">About</a></li>
-            <li><a href="{{ site.baseurl }}/#posts">Posts</a></li>
-        </ul>
-        <button id="theme-toggle" class="theme-toggle">🌙</button>
+<div class="glass-inner">
+    <div class="nav-profile">
+        <div class="avatar-placeholder">
+            <img src="{{ site.baseurl }}/public/img/my-photo.jpeg" alt="Antor">
+        </div>
+        <h5 class="nav-title">Janta Roy Antor</h5>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">Software Developer</p>
     </div>
-</ul>
 
+    <ul class="nav-menu">
+        <li>
+            <a href="{{ site.baseurl }}/#about" title="About">
+                <i class="fas fa-user-circle"></i> About
+            </a>
+        </li>
+        <li>
+            <a href="{{ site.baseurl }}/#services" title="Services">
+                <i class="fas fa-shapes"></i> Services
+            </a>
+        </li>
+        <li>
+            <a href="{{ site.baseurl }}/#skills" title="Skills">
+                <i class="fas fa-kitchen-set"></i> Skills
+            </a>
+        </li>
+        <li>
+            <a href="{{ site.baseurl }}/#projects" title="Projects">
+                <i class="fas fa-briefcase"></i> Projects
+            </a>
+        </li>
+        <li>
+            <a href="{{ site.baseurl }}/#posts" title="Posts">
+                <i class="fas fa-pen-nib"></i> Posts
+            </a>
+        </li>
+    </ul>
 
-<script>
-
-
-    const toggle = document.getElementById("theme-toggle");
-
-    toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    localStorage.setItem("theme", document.documentElement.classList.contains("dark") ? "dark" : "light");
-    });
-</script>
+    <div class="theme-switch-wrapper">
+        <div class="toggle-container">
+            <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-muted);">Appearance</span>
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+        </div>
+    </div>
+</div>
