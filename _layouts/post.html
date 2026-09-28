@@ -1,11 +1,14 @@
 ---
 layout: home
 ---
-<div class="section-card">
-    <p class="project-tag">{{ page.date | date: "%B %d, %Y" }}</p>
-    <h1 class="hero-title" style="font-size: 3rem; margin-bottom: 2rem;">{{ page.title }}</h1>
-    <hr style="border: 0; border-top: 1px solid var(--border); margin-bottom: 2rem;">
+<article class="post-detail">
+    <header class="post-header">
+        <a class="post-back-link" href="{{ site.baseurl }}/#posts"><i class="fas fa-arrow-left"></i> Back to posts</a>
+        <p class="post-kicker">Field notes · {{ page.date | date: "%B %d, %Y" }}</p>
+        <h1>{{ page.title }}</h1>
+        <div class="post-rule"></div>
+    </header>
     <div class="post-body">
         {{ content }}
     </div>
-</div>
+</article>
